@@ -61,7 +61,7 @@ int main(){
     double input,output;
     printf("Enter the value of x: ");
     scanf("%lf",&input);
-    output=input*a+b;
+    output=input*b+a; //y=bx+a or y=ax+b confused
     printf("The predicted value of y is %lf",output);
     fclose(file);
 	return 0;
