@@ -35,7 +35,10 @@ int main() {
     int start = 0;
     for (int i = 0; i < threadnum; i++) {
         thread_data[i].start = start;
-        thread_data[i].end = start + base_slice + (i < remainder ? 1 : 0);
+        thread_data[i].end = start + base_slice;
+        if (i < remainder) {
+    		thread_data[i].end += 1;
+		}
         start = thread_data[i].end; 
     }
     for (int i = 0; i < threadnum; i++) {
