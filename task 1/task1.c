@@ -37,17 +37,8 @@ int main(){
 	}
 	int x,y,n=0;
 	double a,b;
-	char line[150];
 	double sum_x=0,sum_y=0,sum_xy=0,sum_x2=0,sum_y2=0;
-	while(fgets(line,sizeof(line),file)!=NULL){
-		char *token=strtok(line,",");
-		if(token!=NULL){
-			x=atoi(token);
-		}
-		token=strtok(NULL,",");
-		if(token!=NULL){
-			y=atoi(token);
-		}
+	while(fscanf(file,"%d,%d",&x,&y)!=EOF){
 		sum_x+=x;
 		sum_y+=y;
 		sum_xy+=x*y;
