@@ -37,10 +37,11 @@ void *gaussian_blur(void *arg){
             output_image[index + 3] = (unsigned char)(a / count);
         }
     }
+    return NULL;
 }
 
 int main(){
-	char *input="mario.png",*output="GaussianMario.png";
+	char *input="test.png",*output="Gaussianoutput.png";
 	int threadnum;
 	if (lodepng_decode32_file(&input_image,&w,&h, input)) {
         printf("Error loading image file %s\n", input);
@@ -72,6 +73,7 @@ int main(){
         pthread_join(threads[i], NULL);
     }
     lodepng_encode32_file(output, output_image, w, h);
+    printf("\nBlurred image saved to Gaussianoutput.png");
     free(input_image);
     free(output_image);
     free(threads);
